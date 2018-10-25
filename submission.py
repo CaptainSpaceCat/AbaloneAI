@@ -122,7 +122,17 @@ class AbaloneGame():
                             power = self.getPower(row, col, dir)
                             for i in range(1, power+1):
                                 if i > opposition:
-                                    actions.append(((row, col), dir, i))
+                                    actions.append(((row, col), dir, (dir + 3)%6, i))
+
+                    #get broadside actions
+                    for ballDir in range(3):
+                        power = self.getPower(row, col, (ballDir+3)%6)
+                        if power > 1:
+                            for dir in range(6):
+                                for numBalls in range(2, power+1):
+                                    move = ((row, col), dir, ballDir, numBalls)
+                                    if self.checkBroadMove(move):
+                                        actions.append(move)
 
         return actions
 
@@ -131,7 +141,8 @@ class AbaloneGame():
         row = action[0][0]
         col = action[0][1]
         dir = action[1]
-        power = action[2]
+        ballDir = action[2]
+        power = action[3]
         team = self.board[row][col]
 
         if ballDir == (dir + 3)%6:
@@ -183,9 +194,10 @@ def getGameBoard(fileName):
     return board
 
 
-board = getGameBoard("small.txt")
+board = getGameBoard("default.txt")
 game = AbaloneGame(board, 3, 6)
 game.printSelf()
 actions = game.getActions()
 print(actions)
+print(game.getPower(3, 1, 0))
 #game.printSelf()
