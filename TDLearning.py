@@ -17,6 +17,20 @@ def getLossFeatures(maxBalls):
 
     return (("white loss percent", whiteLossFeature), ("black loss percent", blackLossFeature))
 
+def getWinFeatures():
+
+    def whiteWinFeature(state):
+        if state.blackRemaining == 0:
+            return 1
+        return 0
+
+    def blackWinFeature(state):
+        if state.whiteRemaining == 0:
+            return 1
+        return 0
+
+    return (("white victory", whiteWinFeature), ("black victory", blackWinFeature))
+
 def getTurnFeature(team):
 
     def turnFeature(state):
@@ -25,6 +39,52 @@ def getTurnFeature(team):
         return 0
 
     return ("turn " + str(team), turnFeature)
+
+def getBorderFeature(game, team):
+
+    def getBorderFeature(state):
+        total = 0
+        for row in range(game.width):
+            if row == 0 or row == game.width - 1:
+                for col in range(game.width):
+                    if state.board[row][col] == team:
+                        total += 1
+            else:
+                front = 0
+                back = game.width - 1
+                while state.board[row][front] == None:
+                    front += 1
+                while state.board[row][back] == None:
+                    back -= 1
+                if state.board[row][front] == team:
+                    total += 1
+                if state.board[row][back] == team:
+                    total += 1
+        return total
+
+    return ("balls on edge: " + str(team), getBorderFeature)
+
+def getProtectedFeature(game, team):
+
+    def protectedFeature(state):
+        total = 0
+        for row in range(game.width):
+            for col in range(game.width):
+                if state.board[row][col] == team:
+                    protected = True
+                    for i in range(len(game.dirGrid)):
+                        newRow = game.dirGrid[i][0] + row
+                        newCol = game.dirGrid[i][1] + col
+                        if not game.inBounds(newRow, newCol) or state.board[newRow][newCol] != team:
+                            protected = False
+                            break
+                    if protected:
+                        total += 1
+        return total
+
+    return ("protected count: " + str(team), protectedFeature)
+
+
 
 class TDLearning():
 

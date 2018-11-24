@@ -1,14 +1,8 @@
 import math, random
 from collections import defaultdict
 
-dirGrid = [
-(-1, 0),
-(-1, 1),
-(0, 1),
-(1, 0),
-(1, -1),
-(0, -1)
-]
+BALL_REMOVED_REWARD = 20
+GAME_WON_REWARD = 100
 
 class Gamestate():
 
@@ -26,28 +20,12 @@ class Gamestate():
                 newBoard[row].append(self.board[row][col])
         return Gamestate(newBoard, self.whiteRemaining, self.blackRemaining, self.turn)
 
-
-class AbaloneGame():
-
-    def __init__(self, gameState, maxPower, maxTurns):
-        self.defaultState = gameState
-        self.state = gameState.getCopy()
-        self.width = len(gameState.board)
-        self.maxPower = maxPower
-
-        #max number of turns before quitting
-        #1 turn = 1 move for both sides
-        self.moveCount = 0
-        self.maxTurns = maxTurns
-
     def __str__(self):
-        self.printSelf()
-
-    def printSelf(self):
+        output = ""
         r = 0
-        offset = (self.width - 1)/2
+        offset = (len(self.board) - 1)/2
         noneChar = " "
-        for row in self.state.board:
+        for row in self.board:
             line = (" " * r)
             n = 0
             for item in row:
@@ -62,20 +40,48 @@ class AbaloneGame():
                     line += ". "
             if n == 0:
                 noneChar = "\\"
-            print(str(r) + "|" + line[offset:])
+            output += str(r) + "|" + line[offset:] + "\n"
             r += 1
 
-        print((" " * (r - offset + 2)) + ("\ " * self.width))
+        output += (" " * (r - offset + 2)) + ("\ " * len(self.board)) + "\n"
         line = ""
-        for i in range(self.width):
+        for i in range(len(self.board)):
             line += str(i) + " "
-        print((" " * (r - offset + 3)) + line)
-        self.printRef()
+        output += (" " * (r - offset + 3)) + line + "\n"
+        return output
 
-    def printRef(self):
-        print(" 0 1")
-        print("5 . 2")
-        print(" 4 3")
+
+class AbaloneGame():
+
+    def __init__(self, gameState, maxPower, maxTurns):
+        self.defaultState = gameState
+        self.state = gameState.getCopy()
+        self.width = len(gameState.board)
+        self.maxPower = maxPower
+
+        #max number of turns before quitting
+        #1 turn = 1 move for both sides
+        self.moveCount = 0
+        self.maxTurns = maxTurns
+
+        self.dirGrid = [
+        (-1, 0),
+        (-1, 1),
+        (0, 1),
+        (1, 0),
+        (1, -1),
+        (0, -1)
+        ]
+
+    def __str__(self):
+        output = str(self.state)
+        output += " 0 1\n5 . 2\n 4 3\n"
+        return output
+
+    # def printRef(self):
+    #     print(" 0 1")
+    #     print("5 . 2")
+    #     print(" 4 3")
 
     # def getCount(self):
     #     white = 0
@@ -119,8 +125,8 @@ class AbaloneGame():
     def getOpposingBalls(self, state, row, col, dir):
         total = 0
         while True:
-            currentRow = row + dirGrid[dir][0] * (total + 1)
-            currentCol = col + dirGrid[dir][1] * (total + 1)
+            currentRow = row + self.dirGrid[dir][0] * (total + 1)
+            currentCol = col + self.dirGrid[dir][1] * (total + 1)
             if self.inBounds(currentRow, currentCol):
                 if state.board[currentRow][currentCol] == state.turn:
                     #if we have a ball of the same team in front of us, we cannot move forward
@@ -140,8 +146,8 @@ class AbaloneGame():
             return 0
         total = 1 #since there's actually a ball, we can start at 1
         while total < self.maxPower:
-            currentRow = row + dirGrid[dir][0] * total
-            currentCol = col + dirGrid[dir][1] * total
+            currentRow = row + self.dirGrid[dir][0] * total
+            currentCol = col + self.dirGrid[dir][1] * total
             if not self.inBounds(currentRow, currentCol) or state.board[currentRow][currentCol] != state.turn:
                 break
             total += 1
@@ -155,8 +161,8 @@ class AbaloneGame():
         ballDir = move[2]
         numBalls = move[3]
         for ball in range(numBalls):
-            newRow = initialRow + dirGrid[ballDir][0] * ball + dirGrid[dir][0]
-            newCol = initialCol + dirGrid[ballDir][1] * ball + dirGrid[dir][1]
+            newRow = initialRow + self.dirGrid[ballDir][0] * ball + self.dirGrid[dir][0]
+            newCol = initialCol + self.dirGrid[ballDir][1] * ball + self.dirGrid[dir][1]
             if not self.inBounds(newRow, newCol) or state.board[newRow][newCol] != 0:
                 return False
         return True
@@ -173,7 +179,7 @@ class AbaloneGame():
 
                     #get pushing actions
                     for dir in range(6):
-                        if self.inBounds(row + dirGrid[dir][0], col + dirGrid[dir][1]):
+                        if self.inBounds(row + self.dirGrid[dir][0], col + self.dirGrid[dir][1]):
                             opposition = self.getOpposingBalls(state, row, col, dir)
                             power = self.getConsecutiveBalls(state, row, col, (dir+3)%6)
                             for i in range(1, power+1):
@@ -203,41 +209,41 @@ class AbaloneGame():
 
         if ballDir == (dir + 3)%6:
             #we're performing a pushing action
-            newRow = row - dirGrid[dir][0] * (power - 1)
-            newCol = col - dirGrid[dir][1] * (power - 1)
+            newRow = row - self.dirGrid[dir][0] * (power - 1)
+            newCol = col - self.dirGrid[dir][1] * (power - 1)
             state.board[newRow][newCol] = 0
-            newRow = row + dirGrid[dir][0]
-            newCol = col + dirGrid[dir][1]
+            newRow = row + self.dirGrid[dir][0]
+            newCol = col + self.dirGrid[dir][1]
             other = state.board[newRow][newCol]
             state.board[newRow][newCol] = state.turn
             if other != 0:
-                newRow += dirGrid[dir][0]
-                newCol += dirGrid[dir][1]
+                newRow += self.dirGrid[dir][0]
+                newCol += self.dirGrid[dir][1]
                 while self.inBounds(newRow, newCol) and state.board[newRow][newCol] == other:
-                    newRow += dirGrid[dir][0]
-                    newCol += dirGrid[dir][1]
+                    newRow += self.dirGrid[dir][0]
+                    newCol += self.dirGrid[dir][1]
                 if self.inBounds(newRow, newCol):
                     state.board[newRow][newCol] = other
                 else:
                     if other == 1:
                         state.whiteRemaining -= 1
-                        reward = -20
+                        reward = -1 * BALL_REMOVED_REWARD
                     elif other == -1:
                         state.blackRemaining -= 1
-                        reward = 20
+                        reward = BALL_REMOVED_REWARD
         else:
             for ball in range(power):
-                newRow = row + dirGrid[ballDir][0] * ball
-                newCol = col + dirGrid[ballDir][1] * ball
+                newRow = row + self.dirGrid[ballDir][0] * ball
+                newCol = col + self.dirGrid[ballDir][1] * ball
                 state.board[newRow][newCol] = 0
-                newRow += dirGrid[dir][0]
-                newCol += dirGrid[dir][1]
+                newRow += self.dirGrid[dir][0]
+                newCol += self.dirGrid[dir][1]
                 state.board[newRow][newCol] = state.turn
 
         if state.blackRemaining == 0:
-            reward = 100
+            reward = GAME_WON_REWARD
         elif state.whiteRemaining == 0:
-            reward = -100
+            reward = -1 * GAME_WON_REWARD
 
         state.turn *= -1
         return (state, reward)

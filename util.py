@@ -28,6 +28,23 @@ def getGameInfo(fileName):
 
     return (game.Gamestate(board, numToWin, numToWin, -1), maxPower)
 
+def getPreloadedWeights(fileName):
+    f = open(fileName, "r")
+    fl = f.readlines()
+    f.close()
+    weights = []
+
+    for line in fl:
+        weights.append(float(line))
+
+    return weights
+
+def saveCurrentWeights(weights, fileName):
+    f = open(fileName, "w")
+    for val in weights:
+        f.write(str(val) + "\n")
+    f.close()
+
 def getPlayerAction():
     nums = [int(n) for n in raw_input("Black >").split()]
     if len(nums) == 0:
