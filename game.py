@@ -11,6 +11,8 @@ class Gamestate():
         self.whiteRemaining = numWhite
         self.blackRemaining = numBlack
         self.turn = turn
+        self.score = 0
+        self.ballTaken = False
 
     def getCopy(self):
         newBoard = []
@@ -206,6 +208,7 @@ class AbaloneGame():
         ballDir = action[2]
         power = action[3]
         reward = 0
+        state.ballTaken = False
 
         if ballDir == (dir + 3)%6:
             #we're performing a pushing action
@@ -227,9 +230,11 @@ class AbaloneGame():
                 else:
                     if other == 1:
                         state.whiteRemaining -= 1
+                        state.ballTaken = True
                         reward = -1 * BALL_REMOVED_REWARD
                     elif other == -1:
                         state.blackRemaining -= 1
+                        state.ballTaken = True
                         reward = BALL_REMOVED_REWARD
         else:
             for ball in range(power):
@@ -246,4 +251,5 @@ class AbaloneGame():
             reward = -1 * GAME_WON_REWARD
 
         state.turn *= -1
+        state.score += reward
         return (state, reward)

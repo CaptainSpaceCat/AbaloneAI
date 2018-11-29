@@ -1,0 +1,1245 @@
+Microsoft Windows [Version 10.0.17134.407]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\conno>cd OneDrive/Desktop
+
+C:\Users\conno\OneDrive\Desktop>cd AbaloneAI-master
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper -p
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 1.44558151731
+black loss percent => 0.130818416071
+white victory => 1.0
+black victory => 1.0
+shared edge count: 1 => -0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => 1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => -0.00196145957093
+center count: -1 => -1.15522248508
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 4 3 0 3
+0|    . O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . O . . . .
+4|. . . . . . . . .
+5| . . . . @ . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 5 3 0 3
+0|    . . O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . O O . . .
+4|. . . . . . . . .
+5| . . . @ @ . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    . @ @ @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 6 3 1 2
+0|    . . O O O
+1|   O O O O . O
+2|  . . O O . O .
+3| . . . O O O . .
+4|. . . . . . . . .
+5| . . . @ @ . . . \
+6|  . @ @ @ @ . . \ \
+7|   . @ @ @ @ @ \ \ \
+8|    . @ @ @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 4 3 0 3
+0|    . . O O O
+1|   O . O O . O
+2|  . . O O . O .
+3| . . . O O O . .
+4|. . . . O . . . .
+5| . @ . @ @ . . . \
+6|  . @ @ @ @ . . \ \
+7|   . @ @ @ @ @ \ \ \
+8|    . . @ @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 6 4 1 3
+0|    . . O O O
+1|   O . O O . .
+2|  . . O O . O .
+3| . . . O O O . .
+4|. . . . O O . . .
+5| . @ @ @ @ . . . \
+6|  . @ @ @ @ . . \ \
+7|   . @ @ @ @ @ \ \ \
+8|    . . . @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >1 6 3 0 2
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O O O .
+3| . . . O O O . .
+4|. . . . O O . . .
+5| . @ @ @ @ . . . \
+6|  . @ @ @ @ @ . \ \
+7|   . @ @ @ @ . \ \ \
+8|    . . . @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 5 3 1 3
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O O . .
+3| . . . O O . O .
+4|. . . . O . O . .
+5| . @ @ @ @ O @ . \
+6|  . @ @ @ @ @ . \ \
+7|   . @ @ @ @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >5 5 4 1 3
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O O . .
+3| . . . O O . . .
+4|. . . . O @ O . .
+5| . @ @ @ @ O @ . \
+6|  . @ @ . O @ . \ \
+7|   . @ @ @ @ . \ \ \
+8|    . . @ . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 4 4 1 3
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O O . .
+3| . . . O O . . .
+4|. @ @ @ O @ . . .
+5| . . . . @ O @ . \
+6|  . @ @ . O @ . \ \
+7|   . @ @ O @ . \ \ \
+8|    . . @ . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 4 4 1 3
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O . . .
+3| . . @ O O . . .
+4|. @ . @ O @ . . .
+5| . . . O @ O @ . \
+6|  . @ @ . O @ . \ \
+7|   . @ @ O @ . \ \ \
+8|    . . @ . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >5 3 4 1 3
+0|    . . . O O
+1|   O . O O . .
+2|  . . O O . . .
+3| . . @ O . . . .
+4|. @ . @ O @ . . .
+5| . . O O @ O @ . \
+6|  . @ @ . O @ . \ \
+7|   . @ @ O @ . \ \ \
+8|    @ . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 4 0 3 3
+0|    . . . O O
+1|   O O O O . .
+2|  . . O O . . .
+3| . . @ O . . . .
+4|. @ . @ O @ . . .
+5| . . O @ @ O @ . \
+6|  . @ @ . O @ . \ \
+7|   . @ @ O @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >7 3 0 3 1
+0|    . . . O O
+1|   O O O O . .
+2|  . . O O . . .
+3| . . @ O @ . . .
+4|. @ . @ O . . . .
+5| . . O @ @ O @ . \
+6|  . @ @ O O @ . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 4 2 5 2
+0|    . . . O O
+1|   O O O O . .
+2|  . . O O . . .
+3| . . @ O @ . . .
+4|. @ . @ O . @ . .
+5| . . O @ @ O @ . \
+6|  . @ @ . O O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >5 5 1 4 2
+0|    . . . O O
+1|   O O O O . .
+2|  . . O O . . .
+3| . . @ O @ . @ .
+4|. @ . @ O @ O . .
+5| . . O @ . O @ . \
+6|  . @ @ . . O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >1 6 2 5 3
+0|    . . . O O
+1|   O . O O O .
+2|  . . O O . . .
+3| . . @ O @ . @ .
+4|. @ . @ O @ O . .
+5| . . O @ . O @ . \
+6|  . @ . @ . O . \ \
+7|   . @ . @ @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 6 1 4 2
+0|    . . . O O
+1|   O . O O O .
+2|  . . O O . @ .
+3| . . @ O @ . O .
+4|. @ . @ O @ O . .
+5| . . O @ . . @ . \
+6|  . @ . @ . O . \ \
+7|   . @ . @ @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 5 2 5 2
+0|    . . . O O
+1|   O . O O O .
+2|  . @ . O O @ .
+3| . . . O @ . O .
+4|. @ . @ O @ O . .
+5| . . O @ . . @ . \
+6|  . @ . @ . O . \ \
+7|   . @ . @ @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 6 2 5 2
+0|    . . . O O
+1|   O . O O O .
+2|  . @ . . O O @
+3| . . . O @ . O .
+4|. @ . @ O @ O . .
+5| . . O @ . . @ . \
+6|  . @ . @ . O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 7 1 4 2
+0|    . . . O O
+1|   O . O O O .
+2|  . @ . . O O O
+3| . . . O @ . O .
+4|. @ . @ O @ . . .
+5| . . O @ . . @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 7 4 0 2
+0|    . . . O O
+1|   O . O O O .
+2|  . @ . @ O . O
+3| . . . O @ O . .
+4|. @ . @ O . O . .
+5| . . O @ . . @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >1 5 4 1 1
+0|    . . . O O
+1|   O . @ O O .
+2|  . @ O . O . O
+3| . . . O @ O . .
+4|. @ . @ O . O . .
+5| . . O @ . . @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 6 4 0 2
+0|    . . . O O
+1|   O . @ O O .
+2|  . @ O . O . O
+3| . . . O . @ . .
+4|. @ . @ O O . . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 6 3 0 2
+0|    . . . O O
+1|   O . @ . O .
+2|  . @ O . O . O
+3| . . . O . O @ .
+4|. @ . @ O O . . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >1 7 3 0 2
+0|    . . . . O
+1|   O . @ . O .
+2|  . @ O . O O O
+3| . . @ O . O @ .
+4|. @ . . O O . . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ . \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 5 3 0 3
+0|    . . . . O
+1|   O . . . O .
+2|  . @ O @ O O O
+3| . . @ O . O @ .
+4|. @ . . O . . . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 4 2 0 2
+0|    . . . . O
+1|   O . . . O .
+2|  . @ O @ O O O
+3| . . . @ O O @ .
+4|. @ . . . O . . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 6 3 0 2
+0|    . . . . O
+1|   O . . @ O .
+2|  . @ O . . O O
+3| . . . @ O O @ .
+4|. @ . . . O O . .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >2 7 3 0 2
+0|    . . . . O
+1|   O . . . . .
+2|  . @ O . @ O O
+3| . . . @ O O O .
+4|. @ . . . O O @ .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 6 2 5 2
+0|    . . . . O
+1|   O . . . . .
+2|  . @ O . @ O O
+3| . . . @ O O O @
+4|. @ . . . . O O .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 7 2 5 3
+0|    . . . . O
+1|   O . . . . .
+2|  . @ O . @ O O
+3| . . . @ . O O O
+4|. . @ . . . O O .
+5| . . O @ . O @ . \
+6|  . @ . . @ O . \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 6 3 0 2
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O . . O O
+3| . . . @ . . O O
+4|. . @ . . . O O .
+5| . . O @ . O O . \
+6|  . @ . . @ O @ \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >5 6 3 0 2
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O O
+3| . . . . . . O O
+4|. . @ . . . . O .
+5| . . O @ . O O . \
+6|  . @ . . @ O O \ \
+7|   . @ @ . @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 5 4 1 2
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O O
+3| . . . . . . O O
+4|. . @ . . . . O .
+5| . . O @ . O . . \
+6|  . @ . . @ O O \ \
+7|   . @ @ @ O O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >3 7 4 1 2
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . O O
+4|. . @ . . . O O .
+5| . . O @ . O . . \
+6|  . @ . . @ O O \ \
+7|   . . @ @ @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >5 5 4 1 3
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . O
+4|. . @ . . . O O .
+5| . . O @ . O . . \
+6|  . @ @ . O O O \ \
+7|   . . @ @ @ O \ \ \
+8|    . . . . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 4 4 1 3
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . O
+4|. . @ . @ . . O .
+5| . . O @ . O . . \
+6|  . @ . . O O O \ \
+7|   . . @ O @ O \ \ \
+8|    . . @ . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >7 3 4 1 3
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . O
+4|. . @ . . @ . O .
+5| . . O @ . . . . \
+6|  . @ . . O O O \ \
+7|   . . @ O @ O \ \ \
+8|    . . O . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >4 7 4 1 2
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . .
+4|. . @ . . . @ O .
+5| . . O @ . . O . \
+6|  . @ . . O O O \ \
+7|   . . @ O @ O \ \ \
+8|    . . O . . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >6 5 4 1 3
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . .
+4|. . @ . @ . @ . .
+5| . . O . . . O . \
+6|  . @ . . O O O \ \
+7|   . . @ O O O \ \ \
+8|    . . O @ . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Black >7 4 4 1 3
+0|    . . . . O
+1|   O . . . @ .
+2|  . @ O @ . O .
+3| . . . . . . . .
+4|. . @ . @ . @ . .
+5| . . O . . . . . \
+6|  . @ . . O O O \ \
+7|   . . @ O O O \ \ \
+8|    . . O O . \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+('victor: -1', 'moveCount: 81')
+
+Testing AI against random agent...
+
+Testing AI against heuristic agent...
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper -r 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 1.44558151731
+black loss percent => 0.130818416071
+white victory => 1.0
+black victory => 1.0
+shared edge count: 1 => -0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => 1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => -0.00196145957093
+center count: -1 => -1.15522248508
+
+Testing AI against random agent...
+('victor: 0', 'moveCount: 2000')
+Traceback (most recent call last):
+  File "abalone.py", line 121, in <module>
+    bestAction = minimax.getBestAction(abgame, tdlearning.getValue, depth=MINIMAX_DEPTH)#actions[random.randint(0, len(actions))]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 45, in getBestAction
+    value = self.getBestValue(game, successor, evalFn, depth - 1)#evalFn(successor)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 10, in getBestValue
+    return evalFn(state)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 141, in getValue
+    result += self.featureList[i][1](state) * self.weights[i]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 95, in sharedEdgeFeature
+    for i in range(len(game.dirGrid)):
+KeyboardInterrupt
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 1.44558151731
+black loss percent => 0.130818416071
+white victory => 1.0
+black victory => 1.0
+shared edge count: 1 => -0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => 1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => -0.00196145957093
+center count: -1 => -1.15522248508
+
+Testing AI against heuristic agent...
+('victor: -1', 'moveCount: 309')
+Traceback (most recent call last):
+  File "abalone.py", line 149, in <module>
+    bestAction = minimax.getBestAction(abgame, tdlearning.getValue, depth=MINIMAX_DEPTH)#actions[random.randint(0, len(actions))]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 45, in getBestAction
+    value = self.getBestValue(game, successor, evalFn, depth - 1)#evalFn(successor)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 10, in getBestValue
+    return evalFn(state)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 141, in getValue
+    result += self.featureList[i][1](state) * self.weights[i]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 98, in sharedEdgeFeature
+    if game.inBounds(newRow, newCol) and state.board[newRow][newCol] == team and not ((row, col), (newRow, newCol)) in counted and not ((newRow, newCol), (row, col)) in counted:
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\game.py", line 117, in inBounds
+    return row >= 0 and col >= 0 and row < self.width and col < self.width and self.state.board[row][col] != None
+KeyboardInterrupt
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 1.44558151731
+black loss percent => -0.130818416071
+white victory => 3.0
+black victory => -3.0
+shared edge count: 1 => 0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => -1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => 0.0196145957093
+center count: -1 => -1.15522248508
+
+Testing AI against heuristic agent...
+('victor: 1', 'moveCount: 678')
+('victor: 1', 'moveCount: 958')
+('victor: 1', 'moveCount: 1496')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 1426')
+('victor: 1', 'moveCount: 1064')
+('victor: 1', 'moveCount: 1664')
+('victor: 1', 'moveCount: 522')
+('victor: 1', 'moveCount: 760')
+('victor: 1', 'moveCount: 742')
+('victor: 1', 'moveCount: 378')
+('victor: 1', 'moveCount: 694')
+('victor: 1', 'moveCount: 736')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 716')
+('victor: 1', 'moveCount: 646')
+('victor: 1', 'moveCount: 588')
+('victor: 1', 'moveCount: 772')
+('victor: 1', 'moveCount: 360')
+('victor: 1', 'moveCount: 1260')
+('victor: 1', 'moveCount: 1380')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 1092')
+('victor: 1', 'moveCount: 416')
+('victor: 1', 'moveCount: 1968')
+('victor: 1', 'moveCount: 1188')
+('victor: 1', 'moveCount: 428')
+('victor: 1', 'moveCount: 154')
+('victor: 1', 'moveCount: 558')
+('victor: 1', 'moveCount: 606')
+('victor: 1', 'moveCount: 900')
+('victor: 1', 'moveCount: 562')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 1276')
+('victor: 1', 'moveCount: 866')
+('victor: 1', 'moveCount: 1322')
+('victor: 1', 'moveCount: 726')
+('victor: 1', 'moveCount: 450')
+('victor: 1', 'moveCount: 548')
+('victor: 1', 'moveCount: 444')
+('victor: 1', 'moveCount: 968')
+('victor: 1', 'moveCount: 1112')
+('victor: 1', 'moveCount: 1156')
+('victor: 1', 'moveCount: 1274')
+('victor: 1', 'moveCount: 778')
+('victor: 1', 'moveCount: 380')
+('victor: 1', 'moveCount: 1318')
+('victor: 1', 'moveCount: 666')
+('victor: 1', 'moveCount: 1794')
+('victor: 1', 'moveCount: 894')
+('victor: 1', 'moveCount: 336')
+('victor: 1', 'moveCount: 1820')
+('victor: 1', 'moveCount: 506')
+('victor: 1', 'moveCount: 690')
+('victor: 1', 'moveCount: 918')
+('victor: 1', 'moveCount: 1042')
+('victor: 1', 'moveCount: 232')
+('victor: 1', 'moveCount: 1154')
+('victor: 1', 'moveCount: 792')
+('victor: 1', 'moveCount: 574')
+('victor: 1', 'moveCount: 498')
+('victor: 1', 'moveCount: 806')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 1240')
+('victor: 1', 'moveCount: 664')
+('victor: 1', 'moveCount: 310')
+('victor: 1', 'moveCount: 286')
+('victor: 1', 'moveCount: 808')
+('victor: 1', 'moveCount: 976')
+('victor: 1', 'moveCount: 1376')
+('victor: 1', 'moveCount: 668')
+('victor: 1', 'moveCount: 562')
+('victor: 1', 'moveCount: 692')
+('victor: 1', 'moveCount: 704')
+('victor: 0', 'moveCount: 2000')
+('victor: 1', 'moveCount: 1234')
+('victor: 1', 'moveCount: 994')
+('victor: 1', 'moveCount: 1096')
+('victor: 1', 'moveCount: 692')
+('victor: 1', 'moveCount: 1034')
+('victor: 1', 'moveCount: 650')
+('victor: 1', 'moveCount: 1318')
+('victor: 1', 'moveCount: 1550')
+('victor: 1', 'moveCount: 250')
+('victor: 1', 'moveCount: 866')
+('victor: 1', 'moveCount: 1552')
+('victor: 1', 'moveCount: 784')
+('victor: 1', 'moveCount: 404')
+('victor: 1', 'moveCount: 1146')
+('victor: 1', 'moveCount: 1446')
+('victor: 1', 'moveCount: 1054')
+('victor: 1', 'moveCount: 1134')
+('victor: 1', 'moveCount: 926')
+('victor: 1', 'moveCount: 746')
+('victor: 1', 'moveCount: 1154')
+('victor: 1', 'moveCount: 716')
+('victor: 1', 'moveCount: 510')
+('victor: 1', 'moveCount: 1260')
+('victor: 1', 'moveCount: 766')
+('victor: 1', 'moveCount: 656')
+% of games won by AI: 0.94
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 2.44558151731
+black loss percent => -2.13081841607
+white victory => 3.0
+black victory => -3.0
+shared edge count: 1 => 0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => -1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => 0.0196145957093
+center count: -1 => -1.15522248508
+ball just pushed by: 1 => -2.0
+ball just pushed by: -1 => 2.0
+
+Testing AI against heuristic agent...
+Traceback (most recent call last):
+  File "abalone.py", line 149, in <module>
+    bestAction = minimax.getBestAction(abgame, heuristic, depth=MINIMAX_DEPTH)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 45, in getBestAction
+    value = self.getBestValue(game, successor, evalFn, depth - 1)#evalFn(successor)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 15, in getBestValue
+    value = self.getBestValue(game, successor, evalFn, depth - 1)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 15, in getBestValue
+    value = self.getBestValue(game, successor, evalFn, depth - 1)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 10, in getBestValue
+    return evalFn(state)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 132, in heuristic
+    total += 1
+KeyboardInterrupt
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 2.44558151731
+black loss percent => -2.13081841607
+white victory => 3.0
+black victory => -3.0
+shared edge count: 1 => 0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => -1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => 0.0196145957093
+center count: -1 => -1.15522248508
+ball just pushed by: 1 => -2.0
+ball just pushed by: -1 => 2.0
+
+Testing AI against heuristic agent...
+Traceback (most recent call last):
+  File "abalone.py", line 152, in <module>
+    bestAction = minimax.getBestAction(abgame, tdlearning.getValue, depth=MINIMAX_DEPTH)#actions[random.randint(0, len(actions))]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 45, in getBestAction
+    value = self.getBestValue(game, successor, evalFn, depth - 1)#evalFn(successor)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 12, in getBestValue
+    actions = game.getActions(state)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\game.py", line 193, in getActions
+    power = self.getConsecutiveBalls(state, row, col, ballDir)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\game.py", line 152, in getConsecutiveBalls
+    currentCol = col + self.dirGrid[dir][1] * total
+KeyboardInterrupt
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 2.44558151731
+black loss percent => -2.13081841607
+white victory => 3.0
+black victory => -3.0
+shared edge count: 1 => 0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => -1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => 0.0196145957093
+center count: -1 => -1.15522248508
+ball just pushed by: 1 => -2.0
+ball just pushed by: -1 => 2.0
+
+Testing AI against heuristic agent...
+('victor: 0', 'moveCount: 2000')
+('victor: 0', 'moveCount: 2000')
+('victor: -1', 'moveCount: 201')
+('victor: -1', 'moveCount: 1669')
+('victor: -1', 'moveCount: 1161')
+('victor: 0', 'moveCount: 2000')
+('victor: 0', 'moveCount: 2000')
+('victor: 0', 'moveCount: 2000')
+('victor: 0', 'moveCount: 2000')
+Traceback (most recent call last):
+  File "abalone.py", line 152, in <module>
+    bestAction = minimax.getBestAction(abgame, tdlearning.getValue, depth=MINIMAX_DEPTH)#actions[random.randint(0, len(actions))]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 45, in getBestAction
+    value = self.getBestValue(game, successor, evalFn, depth - 1)#evalFn(successor)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\Minimax.py", line 10, in getBestValue
+    return evalFn(state)
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 150, in getValue
+    result += self.featureList[i][1](state) * self.weights[i]
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 96, in sharedEdgeFeature
+    newRow = game.dirGrid[i][0] + row
+KeyboardInterrupt
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+Traceback (most recent call last):
+  File "abalone.py", line 68, in <module>
+    tdlearning.applyWeights(util.getPreloadedWeights(args['weights'] + ".txt"))
+  File "C:\Users\conno\OneDrive\Desktop\AbaloneAI-master\TDLearning.py", line 144, in applyWeights
+    assert(len(self.weights) == len(self.featureList))
+AssertionError
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>python abalone.py -w deeper_theoretical -t 100
+0|    O O O O O
+1|   O O O O O O
+2|  . . O O O . .
+3| . . . . . . . .
+4|. . . . . . . . .
+5| . . . . . . . . \
+6|  . . @ @ @ . . \ \
+7|   @ @ @ @ @ @ \ \ \
+8|    @ @ @ @ @ \ \ \ \
+       \ \ \ \ \ \ \ \ \
+        0 1 2 3 4 5 6 7 8
+ 0 1
+5 . 2
+ 4 3
+
+Training algorithm...
+white loss percent => 2.44558151731
+black loss percent => -2.13081841607
+white victory => 3.0
+black victory => -3.0
+shared edge count: 1 => 0.358681364097
+shared edge count: -1 => -0.511209592542
+protected count: 1 => 0.880758113401
+protected count: -1 => -1.37132152885
+balls on edge: 1 => -1.16468268319
+balls on edge: -1 => 0.371164384259
+center count: 1 => 0.0196145957093
+center count: -1 => -1.15522248508
+
+Testing AI against heuristic agent...
+('victor: 1', 'moveCount: 344')
+('victor: 1', 'moveCount: 620')
+('victor: 1', 'moveCount: 1062')
+('victor: 1', 'moveCount: 682')
+('victor: 1', 'moveCount: 508')
+('victor: 1', 'moveCount: 558')
+('victor: 1', 'moveCount: 540')
+('victor: 1', 'moveCount: 658')
+('victor: 1', 'moveCount: 464')
+('victor: 1', 'moveCount: 636')
+('victor: 1', 'moveCount: 1546')
+('victor: 1', 'moveCount: 516')
+('victor: 1', 'moveCount: 412')
+('victor: 1', 'moveCount: 1286')
+('victor: 1', 'moveCount: 450')
+('victor: 1', 'moveCount: 572')
+('victor: 1', 'moveCount: 404')
+('victor: 1', 'moveCount: 400')
+('victor: 1', 'moveCount: 716')
+('victor: 1', 'moveCount: 676')
+('victor: 1', 'moveCount: 642')
+('victor: 1', 'moveCount: 714')
+('victor: 1', 'moveCount: 588')
+('victor: 1', 'moveCount: 786')
+('victor: 1', 'moveCount: 430')
+('victor: 1', 'moveCount: 530')
+('victor: 1', 'moveCount: 610')
+('victor: 1', 'moveCount: 416')
+('victor: 1', 'moveCount: 436')
+('victor: 1', 'moveCount: 236')
+('victor: 1', 'moveCount: 656')
+('victor: 1', 'moveCount: 256')
+('victor: 1', 'moveCount: 600')
+('victor: 1', 'moveCount: 232')
+('victor: 1', 'moveCount: 364')
+('victor: 1', 'moveCount: 286')
+('victor: 1', 'moveCount: 888')
+('victor: 1', 'moveCount: 472')
+('victor: 1', 'moveCount: 486')
+('victor: 1', 'moveCount: 1116')
+('victor: 1', 'moveCount: 362')
+('victor: 1', 'moveCount: 362')
+('victor: 1', 'moveCount: 588')
+('victor: 1', 'moveCount: 400')
+('victor: 1', 'moveCount: 264')
+('victor: 1', 'moveCount: 240')
+('victor: 1', 'moveCount: 270')
+('victor: 1', 'moveCount: 748')
+('victor: 1', 'moveCount: 674')
+('victor: 1', 'moveCount: 442')
+('victor: 1', 'moveCount: 562')
+('victor: 1', 'moveCount: 552')
+('victor: 1', 'moveCount: 450')
+('victor: 1', 'moveCount: 784')
+('victor: 1', 'moveCount: 362')
+('victor: 1', 'moveCount: 1116')
+('victor: 1', 'moveCount: 1294')
+('victor: 1', 'moveCount: 666')
+('victor: 1', 'moveCount: 818')
+('victor: 1', 'moveCount: 688')
+('victor: 1', 'moveCount: 570')
+('victor: 1', 'moveCount: 674')
+('victor: 1', 'moveCount: 398')
+('victor: 1', 'moveCount: 1104')
+('victor: 1', 'moveCount: 554')
+('victor: 1', 'moveCount: 614')
+('victor: 1', 'moveCount: 666')
+('victor: 1', 'moveCount: 650')
+('victor: 1', 'moveCount: 500')
+('victor: 1', 'moveCount: 460')
+('victor: 1', 'moveCount: 350')
+('victor: 1', 'moveCount: 772')
+('victor: 1', 'moveCount: 448')
+('victor: 1', 'moveCount: 1116')
+('victor: 1', 'moveCount: 586')
+('victor: 1', 'moveCount: 406')
+('victor: 1', 'moveCount: 854')
+('victor: 1', 'moveCount: 548')
+('victor: 1', 'moveCount: 578')
+('victor: 1', 'moveCount: 304')
+('victor: 1', 'moveCount: 564')
+('victor: 1', 'moveCount: 648')
+('victor: 1', 'moveCount: 296')
+('victor: 1', 'moveCount: 436')
+('victor: 1', 'moveCount: 686')
+('victor: 1', 'moveCount: 1238')
+('victor: 1', 'moveCount: 362')
+('victor: 1', 'moveCount: 468')
+('victor: 1', 'moveCount: 690')
+('victor: 1', 'moveCount: 626')
+('victor: 1', 'moveCount: 430')
+('victor: 1', 'moveCount: 562')
+('victor: 1', 'moveCount: 252')
+('victor: 1', 'moveCount: 538')
+('victor: 1', 'moveCount: 784')
+('victor: 1', 'moveCount: 568')
+('victor: 1', 'moveCount: 356')
+('victor: 1', 'moveCount: 372')
+('victor: 1', 'moveCount: 650')
+('victor: 1', 'moveCount: 878')
+% of games won by AI: 1.0
+
+C:\Users\conno\OneDrive\Desktop\AbaloneAI-master>

@@ -84,7 +84,46 @@ def getProtectedFeature(game, team):
 
     return ("protected count: " + str(team), protectedFeature)
 
+def getSharedEdgeFeature(game, team):
 
+    def sharedEdgeFeature(state):
+        total = 0
+        counted = [] #make this a set
+        for row in range(game.width):
+            for col in range(game.width):
+                if state.board[row][col] == team:
+                    for i in range(len(game.dirGrid)):
+                        newRow = game.dirGrid[i][0] + row
+                        newCol = game.dirGrid[i][1] + col
+                        if game.inBounds(newRow, newCol) and state.board[newRow][newCol] == team and not ((row, col), (newRow, newCol)) in counted and not ((newRow, newCol), (row, col)) in counted:
+                            total += 1
+                            counted.append(((row, col), (newRow, newCol)))
+        return total
+
+    return ("shared edge count: " + str(team), sharedEdgeFeature)
+
+def getCenterFeature(game, team):
+
+    def centerFeature(state):
+        center = game.width/2
+        total = 0
+        for i in range(len(game.dirGrid)):
+            row = game.dirGrid[i][0] + center
+            col = game.dirGrid[i][1] + center
+            if game.inBounds(row, col) and state.board[row][col] == team:
+                total += 1
+        return total
+
+    return ("center count: " + str(team), centerFeature)
+
+def getPushFeature(game, team):
+
+    def pushFeature(state):
+        if state.turn != team and state.ballTaken:
+            return 1
+        return 0
+
+    return ("ball just pushed by: " + str(team), pushFeature)
 
 class TDLearning():
 
