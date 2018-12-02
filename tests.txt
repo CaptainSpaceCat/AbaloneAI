@@ -1,0 +1,43 @@
+python abalone.py -n 1000 -f small -s weights_small
+python abalone.py -n 1000 -f small -s weights_small_step_0001 -step .0001
+python abalone.py -n 1000 -f small -s weights_small_step_001 -step .001
+python abalone.py -n 1000 -f small -s weights_small_step_01 -step .01
+python abalone.py -n 1000 -f small -s weights_small_explore_3 -explore .3
+python abalone.py -n 1000 -f small -s weights_small_explore_2 -explore .2
+python abalone.py -n 1000 -f small -s weights_small_explore_1 -explore .1
+python abalone.py -n 1000 -f small -s weights_small_discount_95 -discount .95
+python abalone.py -n 1000 -f small -s weights_small_discount_9 -discount .9
+python abalone.py -n 1000 -f small -s weights_small_discount_75 -discount .75
+
+python abalone.py -n 1000 -f mini -s weights_mini
+python abalone.py -n 1000 -f mini -s weights_mini_step_0001 -step .0001
+python abalone.py -n 1000 -f mini -s weights_mini_step_001 -step .001
+python abalone.py -n 1000 -f mini -s weights_mini_step_01 -step .01
+python abalone.py -n 1000 -f mini -s weights_mini_explore_3 -explore .3
+python abalone.py -n 1000 -f mini -s weights_mini_explore_2 -explore .2
+python abalone.py -n 1000 -f mini -s weights_mini_explore_1 -explore .1
+python abalone.py -n 1000 -f mini -s weights_mini_discount_95 -discount .95
+python abalone.py -n 1000 -f mini -s weights_mini_discount_9 -discount .9
+python abalone.py -n 1000 -f mini -s weights_mini_discount_75 -discount .75
+
+python abalone.py -n 1000 -f default -s weights_default
+python abalone.py -n 1000 -f default -s weights_default_step_0001 -step .0001
+python abalone.py -n 1000 -f default -s weights_default_step_001 -step .001
+python abalone.py -n 1000 -f default -s weights_default_step_01 -step .01
+python abalone.py -n 1000 -f default -s weights_default_explore_3 -explore .3
+python abalone.py -n 1000 -f default -s weights_default_explore_2 -explore .2
+python abalone.py -n 1000 -f default -s weights_default_explore_1 -explore .1
+python abalone.py -n 1000 -f default -s weights_default_discount_95 -discount .95
+python abalone.py -n 1000 -f default -s weights_default_discount_9 -discount .9
+python abalone.py -n 1000 -f default -s weights_default_discount_75 -discount .75
+
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_step_0001 -step .0001
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_step_001 -step .001
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_step_01 -step .01
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_explore_3 -explore .3
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_explore_2 -explore .2
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_explore_1 -explore .1
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_discount_95 -discount .95
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_discount_9 -discount .9
+python abalone.py -n 1000 -f german_daisy -s weights_german_daisy_discount_75 -discount .75

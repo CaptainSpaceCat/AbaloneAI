@@ -125,6 +125,11 @@ def getPushFeature(game, team):
 
     return ("ball just pushed by: " + str(team), pushFeature)
 
+def getScoreFeature():
+    def scoreFeature(state):
+        return state.score
+    return scoreFeature
+
 class TDLearning():
 
     def __init__(self, featureList, step, discount):

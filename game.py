@@ -1,6 +1,8 @@
-import math, random
+import math, random, graphics
 from collections import defaultdict
 
+MOVE_PENALTY = -2
+PUSHING_REWARD = 5
 BALL_REMOVED_REWARD = 20
 GAME_WON_REWARD = 100
 
@@ -207,8 +209,11 @@ class AbaloneGame():
         dir = action[1]
         ballDir = action[2]
         power = action[3]
-        reward = 0
+        reward = MOVE_PENALTY
         state.ballTaken = False
+
+        if state.board[self.dirGrid[dir][0]+row][self.dirGrid[dir][1]+col] == -1 * state.turn:
+            reward += PUSHING_REWARD
 
         if ballDir == (dir + 3)%6:
             #we're performing a pushing action
