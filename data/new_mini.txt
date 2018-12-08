@@ -1,0 +1,89 @@
+========= 001 ==========
+random
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 10.34
+avg score: 122.6
+
+heuristic
+--------------------------
+% of games won by AI: 0.95
+avg # of moves: 11.9
+avg score: 114.8
+
+detailed
+---------------------------
+% of games won by AI: 0.968
+avg # of moves: 12.27
+avg score: 117.672
+
+# training moves = 37223
+
+========= 0001 ==========
+random
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 9.78
+avg score: 121.9
+
+heuristic
+--------------------------
+% of games won by AI: 0.98
+avg # of moves: 12.5
+avg score: 118.72
+
+detailed
+---------------------------
+% of games won by AI: 0.979
+avg # of moves: 12.008
+avg score: 118.458
+
+# training moves = 24282
+
+========= 00001 ==========
+random
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 9.8
+avg score: 121.66
+
+heuristic
+--------------------------
+% of games won by AI: 0.99
+avg # of moves: 12.14
+avg score: 119.44
+
+detailed
+---------------------------
+% of games won by AI: 0.981
+avg # of moves: 12.188
+avg score: 118.186
+
+# training moves = 23647
+
+========= 000001 ==========
+random
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 11.3
+avg score: 123.14
+
+heuristic
+--------------------------
+% of games won by AI: 0.95
+avg # of moves: 16.98
+avg score: 116.94
+
+detailed
+---------------------------
+% of games won by AI: 0.968
+avg # of moves: 17.804
+avg score: 118.916
+
+# training moves = 31019
+
+baseline
+--------------------------------
+% of games won by heuristic: 1.0
+avg # of moves: 18.38
+avg score: 121.28

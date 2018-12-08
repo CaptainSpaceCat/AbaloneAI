@@ -1,0 +1,23 @@
+step = .01
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 103.2
+avg score: 126.589905788
+
+step = .001
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 29.6
+avg score: 130.675375488
+
+step = .0001
+-------------------------
+% of games won by AI: 1.0
+avg # of moves: 37.78
+avg score: 134.594047
+
+baseline
+-------------------------
+% of games won by heuristic: 1.0
+avg # of moves: 29.94
+avg score: 144.069847936

@@ -128,7 +128,7 @@ def getPushFeature(game, team):
 def getScoreFeature():
     def scoreFeature(state):
         return state.score
-    return scoreFeature
+    return ("state score", scoreFeature)
 
 class TDLearning():
 

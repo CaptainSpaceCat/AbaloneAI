@@ -5,78 +5,118 @@ class Minimax():
     def __init__(self, explore):
         self.explore = explore
 
-    def getBestAction(self, game, state, evalFn, depth, alpha=None, beta=None, returnAction=True):
+    def getBestAction(self, game, state, evalFn, depth, alpha=None, beta=None):
         a = alpha
         b = beta
         if depth == 0 or state.whiteRemaining == 0 or state.blackRemaining == 0:
             return evalFn(state)
         if state.turn == 1:
-            value = None
-            bestAction = None
+            maxVal = None
+            bestActions = []
             actions = game.getActions(state)
             for act in actions:
                 successor, reward = game.generateSuccessor(state.getCopy(), act)
-                if value == None:
-                    value = self.getBestAction(game, successor, evalFn, depth-1, alpha=a, beta=b, returnAction=False)
+                eval = self.getBestValue(game, successor, evalFn, depth-1, alpha=a, beta=b)
+                if maxVal == None:
+                    maxVal = eval
+                    bestActions = [act]
                 else:
-                    value = max(value, self.getBestAction(game, successor, evalFn, depth-1, alpha=a, beta=b, returnAction=False))
+                    if eval == maxVal:
+                        bestActions.append(act)
+                    elif eval > maxVal:
+                        maxVal = eval
+                        bestActions = [act]
                 if a == None:
-                    a = value
-                    bestAction = act
+                    a = eval
                 else:
-                    if value > a:
-                        a = value
-                        bestAction = act
+                    a = max(a, eval)
                 if a != None and b != None and a >= b:
                     break
-            if returnAction:
-                return bestAction
-            return value
+            return random.choice(bestActions)
         else:
-            value = None
-            bestAction = None
+            minVal = None
+            bestActions = []
             actions = game.getActions(state)
             for act in actions:
                 successor, reward = game.generateSuccessor(state.getCopy(), act)
-                if value == None:
-                    value = self.getBestAction(game, successor, evalFn, depth-1, alpha=a, beta=b, returnAction=False)
+                eval = self.getBestValue(game, successor, evalFn, depth-1, alpha=a, beta=b)
+                if minVal == None:
+                    minVal = eval
+                    bestActions = [act]
                 else:
-                    value = min(value, self.getBestAction(game, successor, evalFn, depth-1, alpha=a, beta=b, returnAction=False))
+                    if eval == minVal:
+                        bestActions.append(act)
+                    elif eval < minVal:
+                        minVal = eval
+                        bestActions = [act]
                 if b == None:
-                    b = value
-                    bestAction = act
+                    b = eval
                 else:
-                    if value < b:
-                        b = value
-                        bestAction = act
+                    b = min(b, eval)
                 if a != None and b != None and a >= b:
                     break
-            if returnAction:
-                return bestAction
-            return value
+            return random.choice(bestActions)
 
-
+    def getBestValue(self, game, state, evalFn, depth, alpha=None, beta=None):
+        a = alpha
+        b = beta
+        if depth == 0 or state.whiteRemaining == 0 or state.blackRemaining == 0:
+            return evalFn(state)
+        if state.turn == 1:
+            maxVal = None
+            actions = game.getActions(state)
+            for act in actions:
+                successor, reward = game.generateSuccessor(state.getCopy(), act)
+                eval = self.getBestValue(game, successor, evalFn, depth-1, alpha=a, beta=b)
+                if maxVal == None:
+                    maxVal = eval
+                else:
+                    maxVal = max(maxVal, eval)
+                if a == None:
+                    a = eval
+                else:
+                    a = max(a, eval)
+                if a != None and b != None and a >= b:
+                    break
+            return maxVal
+        else:
+            minVal = None
+            actions = game.getActions(state)
+            for act in actions:
+                successor, reward = game.generateSuccessor(state.getCopy(), act)
+                eval = self.getBestValue(game, successor, evalFn, depth-1, alpha=a, beta=b)
+                if minVal == None:
+                    minVal = eval
+                else:
+                    minVal = min(minVal, eval)
+                if b == None:
+                    b = eval
+                else:
+                    b = min(b, eval)
+                if a != None and b != None and a >= b:
+                    break
+            return minVal
 
         # scores = []
         # actions = game.getActions(state)
         # for act in actions:
         #     successor, reward = game.generateSuccessor(state.getCopy(), act)
-        #     value = self.getBestValue(game, successor, evalFn, depth - 1)
-        #     scores.append(value + reward)
+        #     maxVal = self.getBestmaxVal(game, successor, evalFn, depth - 1)
+        #     scores.append(maxVal + reward)
         #
         # if state.turn == 1:
         #     return max(scores)
         # return min(scores)
-    # def getBestValue(self, game, state, evalFn, depth, alpha=None, beta=None):
+    # def getBestmaxVal(self, game, state, evalFn, depth, alpha=None, beta=None):
     #     scores = []
     #     actions = game.getActions(state)
     #     for act in actions:
     #         successor, reward = game.generateSuccessor(state.getCopy(), act)
     #         if depth == 0:
-    #             value = evalFn(successor)
+    #             maxVal = evalFn(successor)
     #         else:
-    #             value = self.getBestValue(game, successor, evalFn, depth - 1)
-    #         scores.append(value)
+    #             maxVal = self.getBestmaxVal(game, successor, evalFn, depth - 1)
+    #         scores.append(maxVal)
     #
     #     if state.turn == 1:
     #         return max(scores)

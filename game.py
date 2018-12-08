@@ -1,8 +1,8 @@
 import math, random, graphics
 from collections import defaultdict
 
-MOVE_PENALTY = -2
-PUSHING_REWARD = 5
+# MOVE_PENALTY = -1
+PUSHING_REWARD = 2
 BALL_REMOVED_REWARD = 20
 GAME_WON_REWARD = 100
 
@@ -14,7 +14,6 @@ class Gamestate():
         self.blackRemaining = numBlack
         self.turn = turn
         self.score = 0
-        self.ballTaken = False
 
     def getCopy(self):
         newBoard = []
@@ -22,7 +21,9 @@ class Gamestate():
             newBoard.append([])
             for col in range(len(self.board)):
                 newBoard[row].append(self.board[row][col])
-        return Gamestate(newBoard, self.whiteRemaining, self.blackRemaining, self.turn)
+        newState = Gamestate(newBoard, self.whiteRemaining, self.blackRemaining, self.turn)
+        newState.score = self.score
+        return newState
 
     def __str__(self):
         output = ""
@@ -114,7 +115,7 @@ class AbaloneGame():
         return self.moveCount >= self.maxTurns*2
 
     def getPostgameInfo(self):
-        return ("victor: " + str(self.isWon()), "moveCount: " + str(self.moveCount))
+        return ("victor: " + str(self.isWon()), "moveCount: " + str(self.moveCount), "score: " + str(self.state.score), "white remaining: " + str(self.state.whiteRemaining), "black remaining: " + str(self.state.blackRemaining))
 
     def inBounds(self, row, col):
         return row >= 0 and col >= 0 and row < self.width and col < self.width and self.state.board[row][col] != None
@@ -209,11 +210,10 @@ class AbaloneGame():
         dir = action[1]
         ballDir = action[2]
         power = action[3]
-        reward = MOVE_PENALTY
-        state.ballTaken = False
+        reward = 0
 
         if state.board[self.dirGrid[dir][0]+row][self.dirGrid[dir][1]+col] == -1 * state.turn:
-            reward += PUSHING_REWARD
+            reward += PUSHING_REWARD * state.turn
 
         if ballDir == (dir + 3)%6:
             #we're performing a pushing action
@@ -235,11 +235,9 @@ class AbaloneGame():
                 else:
                     if other == 1:
                         state.whiteRemaining -= 1
-                        state.ballTaken = True
                         reward = -1 * BALL_REMOVED_REWARD
                     elif other == -1:
                         state.blackRemaining -= 1
-                        state.ballTaken = True
                         reward = BALL_REMOVED_REWARD
         else:
             for ball in range(power):

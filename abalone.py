@@ -11,6 +11,7 @@ parser.add_argument('-w', dest='weights', help="[string], filename from which to
 parser.add_argument('-s', dest='save', help="[string] filename in which to store weights vector after training")
 parser.add_argument('-r', dest='rand', default="0", help="[int] number of testing iterations, testing the AI against a random agent")
 parser.add_argument('-t', dest='test', default="0", help="[int] number of testing iterations, testing the AI against a heuristic agent")
+parser.add_argument('-b', dest='base', default="0", help="[int] number of testing iterations, testing a random agent against a heuristic agent")
 
 parser.add_argument('-discount', dest='discount', default=".9")
 parser.add_argument('-step', dest='step', default=".001")
@@ -20,7 +21,7 @@ args = vars(parser.parse_args())
 numGames = int(args['num'])
 
 gameInfo = util.getGameInfo("boards/" + args['file'] + ".txt")
-abgame = game.AbaloneGame(gameInfo[0], gameInfo[1], 1000)
+abgame = game.AbaloneGame(gameInfo[0], gameInfo[1], 500)
 
 features = []
 for row in range(abgame.width):
@@ -42,7 +43,7 @@ features.append(TDLearning.getBorderFeature(abgame, -1))
 features.append(TDLearning.getCenterFeature(abgame, 1))
 features.append(TDLearning.getCenterFeature(abgame, -1))
 
-# features.append(TDLearning.getScoreFeature())
+features.append(TDLearning.getScoreFeature())
 
 # whiteWin, blackWin = TDLearning.getWinFeatures()
 # features.append(whiteWin)
@@ -66,28 +67,32 @@ TRAINING_DEPTH = 2
 GAME_DEPTH = 3
 
 print abgame
-print "Training algorithm..."
 
 if args['weights'] != None:
     tdlearning.applyWeights(util.getPreloadedWeights("weights/" + args['weights'] + ".txt"))
+    tdlearning.printWeights()
+if numGames > 0:
+    print "Training algorithm..."
+    numTrainingMoves = 0
+    for _ in range(numGames):
+        while not (abgame.maxMovesExceeded() or abgame.isWon()):
+            actions = abgame.getActions(abgame.state)
+            #print actions
+            bestAction = minimax.getLearningAction(abgame, tdlearning.getValue, depth=TRAINING_DEPTH)#actions[random.randint(0, len(actions))]
+            #print(bestAction)
+            oldState = abgame.state.getCopy()
+            reward = abgame.makeMove(bestAction)
+            numTrainingMoves += 1
+            tdlearning.updateWeights(oldState, bestAction, reward, abgame.state)
+            if args['save'] != None:
+                util.saveCurrentWeights(tdlearning.weights, "weights/" + args['save'] + ".txt")
+            #print abgame
 
-for _ in range(numGames):
-    while not (abgame.maxMovesExceeded() or abgame.isWon()):
-        actions = abgame.getActions(abgame.state)
-        #print actions
-        bestAction = minimax.getLearningAction(abgame, tdlearning.getValue, depth=TRAINING_DEPTH)#actions[random.randint(0, len(actions))]
-        #print(bestAction)
-        oldState = abgame.state.getCopy()
-        reward = abgame.makeMove(bestAction)
-        tdlearning.updateWeights(oldState, bestAction, reward, abgame.state)
-        if args['save'] != None:
-            util.saveCurrentWeights(tdlearning.weights, "weights/" + args['save'] + ".txt")
-        #print abgame
+        print abgame.getPostgameInfo()
+        abgame.reset()
 
-    print abgame.getPostgameInfo()
-    abgame.reset()
-
-tdlearning.printWeights()
+    tdlearning.printWeights()
+    print "num moves: " + str(numTrainingMoves)
 
 # whiteHeuristic = minimax.getHeuristic(abgame, 1)
 # blackHeuristic = minimax.getHeuristic(abgame, -1)
@@ -116,9 +121,12 @@ if args['play']:
     # print abgame
     print abgame.getPostgameInfo()
 
+# ======================================== RANDOM AGENT ======================================== #
 numTests = int(args['rand'])
 totalGames = 0
 aiWins = 0
+totalScore = 0
+totalMoves = 0
 if numTests > 0:
     print "\nTesting AI against random agent..."
     for _ in range(numTests):
@@ -129,36 +137,80 @@ if numTests > 0:
                 bestAction = minimax.getBestAction(abgame, abgame.state, tdlearning.getValue, depth=TRAINING_DEPTH)
             abgame.makeMove(bestAction)
 
-        print abgame.getPostgameInfo()
+        info = abgame.getPostgameInfo()
+        print info
+        totalScore += float(info[2].split()[1])
+        totalMoves += int(info[1].split()[1])
         totalGames += 1
         if abgame.getPostgameInfo()[0] == "victor: 1":
             aiWins += 1
         abgame.reset()
 
     print "% of games won by AI: " + str(float(aiWins)/float(totalGames))
+    print "avg # of moves: " + str(float(totalMoves)/float(totalGames))
+    print "avg score: " + str(totalScore/float(totalGames))
 
+
+# ======================================== HEURISTIC AGENT ======================================== #
 numTests = int(args['test'])
 totalGames = 0
 aiWins = 0
+totalScore = 0
+totalMoves = 0
 heuristic = minimax.getHeuristic(abgame, 1)
 if numTests > 0:
     print "\nTesting AI against heuristic agent..."
     for _ in range(numTests):
         while not (abgame.maxMovesExceeded() or abgame.isWon()):
             actions = abgame.getActions(abgame.state)
-            if abgame.state.turn == -1:
-                bestAction = minimax.getBestAction(abgame, abgame.state, heuristic, depth=TRAINING_DEPTH)
+            if abgame.state.turn == -1:                                 #heuristic
+                bestAction = minimax.getBestAction(abgame, abgame.state, minimax.scoreHeuristic, depth=TRAINING_DEPTH)
             else:
                 bestAction = minimax.getBestAction(abgame, abgame.state, tdlearning.getValue, depth=TRAINING_DEPTH)
             abgame.makeMove(bestAction)
 
-        print abgame.getPostgameInfo()
+        info = abgame.getPostgameInfo()
+        print info
         totalGames += 1
         if abgame.getPostgameInfo()[0] == "victor: 1":
             aiWins += 1
+            totalScore += float(info[2].split()[1])
+            totalMoves += int(info[1].split()[1])
         abgame.reset()
 
     print "% of games won by AI: " + str(float(aiWins)/float(totalGames))
+    print "avg # of moves: " + str(float(totalMoves)/float(totalGames))
+    print "avg score: " + str(totalScore/float(totalGames))
+
+# ======================================== BASELINE ======================================== #
+numTests = int(args['base'])
+totalGames = 0
+heuristicWins = 0
+totalScore = 0
+totalMoves = 0
+if numTests > 0:
+    print "\nTesting AI against random agent..."
+    for _ in range(numTests):
+        while not (abgame.maxMovesExceeded() or abgame.isWon()):
+            if abgame.state.turn == -1:
+                bestAction = minimax.getRandomAction(abgame)
+            else:
+                bestAction = minimax.getBestAction(abgame, abgame.state, minimax.scoreHeuristic, depth=TRAINING_DEPTH)
+            abgame.makeMove(bestAction)
+
+        info = abgame.getPostgameInfo()
+        print info
+        totalScore += float(info[2].split()[1])
+        totalMoves += int(info[1].split()[1])
+        totalGames += 1
+        if abgame.getPostgameInfo()[0] == "victor: 1":
+            heuristicWins += 1
+        abgame.reset()
+
+    print "% of games won by heuristic: " + str(float(heuristicWins)/float(totalGames))
+    print "avg # of moves: " + str(float(totalMoves)/float(totalGames))
+    print "avg score: " + str(totalScore/float(totalGames))
+
 
 # actions = abgame.getActions(-1)
 # print(actions)
